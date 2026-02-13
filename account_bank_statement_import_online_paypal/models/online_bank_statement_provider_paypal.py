@@ -454,7 +454,7 @@ class OnlineBankStatementProviderPayPal(models.Model):
                     lambda transaction: self._paypal_preparse_transaction(
                         transaction
                     ),
-                    data['transaction_details']
+                    data.get('transaction_details', [])
                 )
                 transactions += list(filter(
                     lambda transaction:
